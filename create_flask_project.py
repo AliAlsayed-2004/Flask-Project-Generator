@@ -15,9 +15,12 @@ def create_flask_project(base_dir):
                 "__init__.py": "# Add your route imports here\n",
             },
             "static": {
-                "css": {},
-                "js": {},
+                "assets": {},
+                "bootstrap" : {},
+                "css": {"style.css": "/* Your own style */ /n"},
+                "js": {"script.js": "// Your Own Script /n"},
             },
+            "seeds":{},
             "templates": {
                 "layout.html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <title>Flask App</title>\n</head>\n<body>\n    {% block content %}{% endblock %}\n</body>\n</html>",
             },
