@@ -16,13 +16,19 @@ def create_flask_project(base_dir):
             },
             "static": {
                 "assets": {},
+                "plugins": {},
                 "bootstrap" : {},
                 "css": {"style.css": "/* Your own style */ /n"},
                 "js": {"script.js": "// Your Own Script /n"},
             },
             "seeds":{},
+            "tests":{},
             "templates": {
                 "layout.html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <title>Flask App</title>\n</head>\n<body>\n    {% block content %}{% endblock %}\n</body>\n</html>",
+            },
+            "utils":{
+                "util.py": "# For Helper Function \n",
+                "__init__.py": "# Add your route imports here\n"
             },
         },
         "config.py": "import os\n\nBASE_DIR = os.path.abspath(os.path.dirname(__file__))\nDB_DIR = os.path.join(BASE_DIR, 'app', 'database')\nos.makedirs(DB_DIR, exist_ok=True)\n\nDB_PATH = os.path.join(DB_DIR, 'default.db')\n\nclass Config:\n    SQLALCHEMY_DATABASE_URI = f\"sqlite:///{DB_PATH}\"\n    SQLALCHEMY_TRACK_MODIFICATIONS = False\n    SECRET_KEY = 'your-secret-key'",
