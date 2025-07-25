@@ -13,6 +13,7 @@ def create_flask_project(base_dir):
             },
             "routes": {
                 "__init__.py": "# Add your route imports here\n",
+                "errors_routes.py" : "# Add Error Handler Routes"
             },
             "static": {
                 "assets": {},
@@ -25,6 +26,7 @@ def create_flask_project(base_dir):
             "tests":{},
             "templates": {
                 "layout.html": "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n    <title>Flask App</title>\n</head>\n<body>\n    {% block content %}{% endblock %}\n</body>\n</html>",
+                "errors":{}
             },
             "utils":{
                 "util.py": "# For Helper Function \n",
