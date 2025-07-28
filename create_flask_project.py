@@ -13,7 +13,7 @@ def create_flask_project(base_dir):
             },
             "routes": {
                 "__init__.py": "# Add your route imports here\n",
-                "errors_routes.py" : "# Add Error Handler Routes"
+                "errors_routes.py" : "# Add Error Handler Routes \n\n errors_bp = Blueprint('errors', __name__)"
             },
             "static": {
                 "assets": {},
@@ -33,7 +33,7 @@ def create_flask_project(base_dir):
                 "__init__.py": "# Add your route imports here\n"
             },
         },
-        "config.py": "import os\n\nBASE_DIR = os.path.abspath(os.path.dirname(__file__))\nDB_DIR = os.path.join(BASE_DIR, 'app', 'database')\nos.makedirs(DB_DIR, exist_ok=True)\n\nDB_PATH = os.path.join(DB_DIR, 'default.db')\n\nclass Config:\n    SQLALCHEMY_DATABASE_URI = f\"sqlite:///{DB_PATH}\"\n    SQLALCHEMY_TRACK_MODIFICATIONS = False\n    SECRET_KEY = 'your-secret-key'",
+        "config.py": "import os\n\nBASE_DIR = os.path.abspath(os.path.dirname(__file__))\nDB_DIR = os.path.join(BASE_DIR, 'app', 'database')\nos.makedirs(DB_DIR, exist_ok=True)\n\nDB_PATH = os.path.join(DB_DIR, 'default.db')\n\nMIGRATION_DIR = os.path.join(BASE_DIR, 'app', 'migrations')\n\nclass Config:\n    SQLALCHEMY_DATABASE_URI = f\"sqlite:///{DB_PATH}\"\n    SQLALCHEMY_TRACK_MODIFICATIONS = False\n    SECRET_KEY = 'your-secret-key'",
         "requirements.txt": "Flask\nFlask-SQLAlchemy\npython-dotenv",
         "run.py": "from app import create_app\n\napp = create_app()\n\nif __name__ == '__main__':\n    app.run(debug=True)",
         ".gitignore": "__pycache__/\n*.py[cod]\nvenv/\n.env\napp/database/*.db\n.vscode/\n.idea/\n*.sublime-*\n*.swp\n.DS_Store",
